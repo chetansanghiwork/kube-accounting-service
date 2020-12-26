@@ -1,0 +1,12 @@
+kind: Service                             # Defines to create Service type Object
+apiVersion: v1
+metadata:
+  name: accountingservice
+spec:
+  ports:
+    - port: 9000                               # Containers port exposed
+      targetPort: 9000                     # Pods port
+  selector:
+    run: my-accounting                    
+  type: ClusterIP
+

@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: accountingservice-pod
+  labels:
+    myvalue: accounting-service                                # Label for applying service later
+spec:
+  containers:
+    - name: accounting01
+      image: chetangsanghi/kube-accounting-service:0.1
+      ports:
+       - containerPort: 9000                         # Expose port 9000 from container
+

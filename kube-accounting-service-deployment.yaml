@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-accounting-deployment
+spec:
+  selector:
+    matchLabels:
+      run: my-accounting
+  replicas: 2
+  template:
+    metadata:
+      name: my-accounting-pod
+      labels:
+        run: my-accounting
+    spec:
+      containers:
+      - name: accounting01
+        image: chetangsanghi/kube-accounting-service:0.1
+        ports:
+        - containerPort: 9000
+        resources:
+          limits: 
+            cpu: 500m
+          requests:
+            cpu: 200m

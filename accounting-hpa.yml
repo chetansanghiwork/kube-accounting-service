@@ -1,0 +1,12 @@
+kind: HorizontalPodAutoscaler            
+apiVersion: autoscaling/v1
+metadata:
+  name: my-accounting-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-accounting-deployment
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 50
